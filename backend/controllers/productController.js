@@ -14,7 +14,7 @@ export const getProduct = (req, res) => {
     const q = "SELECT * FROM products WHERE id = ?";
     db.query(q, [req.params.id], (err, data) => {
         if (err) return res.status(500).send(err);
-        return res.status(200).json(data);
+        return res.status(200).json(data[0]);
     });
 };
 
