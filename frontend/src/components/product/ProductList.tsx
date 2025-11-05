@@ -34,16 +34,12 @@ export default function ProductList() {
             <h2>Product List</h2>
             <button onClick={() => navigate("/product/add")}>Add Products</button>
             {products.map((product) => (
-                <div
-                    key={product.id}
-                    className="product"
-                    onClick={() => navigate(`/product/${product.id}`)}
-                >
+                <div key={product.id} className="product">
                     <h3 onClick={() => navigate(`/product/${product.id}`)}>{product.name}</h3>
                     <p>Price: ${product.price.toLocaleString()}</p>
                     <button onClick={() => navigate(`/product/edit/${product.id}`)}>Edit</button>
                     <button onClick={(e) => { e.stopPropagation(); handleDelete(product.id); }}>Delete</button>
-                    <button onClick={() => handleDelete(product.id)}>View Reviews</button>
+                    <button onClick={() => navigate(`/product/${product.id}`)}>View Reviews</button>
                 </div>
             ))}
         </div>

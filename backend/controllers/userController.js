@@ -20,9 +20,9 @@ export const getUser = (req, res) => {
 
 // Create a new user
 export const createUser = (req, res) => {
-    const { name, email, phone, address } = req.body;
-    db.query("INSERT INTO users (name, phone, email, address) VALUES (?, ?, ?, ?)", 
-        [name, phone, email, address], 
+    const { name, email, phone, address, password } = req.body;
+    db.query("INSERT INTO users (name, phone, email, address, password) VALUES (?, ?, ?, ?, ?)", 
+        [name, phone, email, address, password], 
         (err, data) => {
             if (err) return res.status(500).send(err);
             res.status(201).json({ id: data.insertId, name, email, phone, address });
@@ -32,9 +32,9 @@ export const createUser = (req, res) => {
 
 // Update an existing user
 export const updateUser = (req, res) => {
-    const { name, email, phone, address } = req.body;
-    db.query("UPDATE users SET name = ?, email = ?, phone = ?, address = ? WHERE id = ?", 
-        [name, email, phone, address, req.params.id], 
+    const { name, email, phone, address, password } = req.body;
+    db.query("UPDATE users SET name = ?, email = ?, phone = ?, address = ?, password = ? WHERE id = ?", 
+        [name, email, phone, address, password, req.params.id], 
         (err, data) => {
             if (err) return res.status(500).send(err);
             res.status(200).json({ id: req.params.id, name, email, phone, address });

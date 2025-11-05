@@ -4,7 +4,7 @@ export default function HomePage() {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div className="product">
       <h1>Welcome to React App</h1>
       {/* <ProductList /> */}
       <h3 onClick={() => navigate(`/product/`)}>Product List</h3>

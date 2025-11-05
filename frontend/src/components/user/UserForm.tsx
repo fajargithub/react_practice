@@ -12,10 +12,10 @@ export default function UserForm({ initialData, onSubmit }: UserFormProps) {
         if (initialData) setFormData(initialData);
     }, [initialData]);
 
-    // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    //     const { name, value } = e.target;
-    //     setFormData((prev) => ({ ...prev, [name]: name === "price" ? Number(value) : value }));
-    // };
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+    };
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -31,6 +31,7 @@ export default function UserForm({ initialData, onSubmit }: UserFormProps) {
                     type="text"
                     name="name"
                     value={formData.name}
+                    onChange={handleChange}
                     required
                 />
             </div>
@@ -40,6 +41,7 @@ export default function UserForm({ initialData, onSubmit }: UserFormProps) {
                     type="email"
                     name="email"
                     value={formData.email}
+                    onChange={handleChange}
                     required
                 />
             </div>
@@ -49,6 +51,7 @@ export default function UserForm({ initialData, onSubmit }: UserFormProps) {
                     type="password"
                     name="password"
                     value={formData.password}
+                    onChange={handleChange}
                     required
                 />
             </div>
@@ -58,6 +61,7 @@ export default function UserForm({ initialData, onSubmit }: UserFormProps) {
                     type="text"
                     name="phone"
                     value={formData.phone}
+                    onChange={handleChange}
                     required
                 />
             </div>
@@ -67,6 +71,7 @@ export default function UserForm({ initialData, onSubmit }: UserFormProps) {
                     type="text"
                     name="address"
                     value={formData.address}
+                    onChange={handleChange}
                     required
                 />
             </div>

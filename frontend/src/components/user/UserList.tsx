@@ -34,18 +34,16 @@ export default function UserList() {
     return (
         <div className="container">
             <h2>User List</h2>
-            <button onClick={() => navigate("/add")}>Add User</button>
+            <button onClick={() => navigate("/user/add")}>Add User</button>
             {users.map((user) => (
-                <div
-                    key={user.id}
-                    className="user"
-                    onClick={() => navigate(`/user/${user.id}`)}
-                >
+                <div key={user.id} className="user">
                     <h3 onClick={() => navigate(`/user/${user.id}`)}>{user.name}</h3>
                     <p>Email: {user.email}</p>
                     <p>Phone: {user.phone}</p>
                     <p>Address: {user.address}</p>
+                    <button onClick={() => navigate(`/user/edit/${user.id}`)}>Edit</button>
                     <button onClick={() => handleDelete(user.id)}>Delete</button>
+                    <button onClick={() => navigate(`/user/${user.id}`)}>View Details</button>
                 </div>
             ))}
         </div>
