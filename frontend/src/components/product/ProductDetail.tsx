@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getProductById } from "../api/productApi";
+import { getProductById } from "../../api/productApi";
 
 interface Product {
     id: number;
@@ -29,7 +29,7 @@ export default function ProductDetail() {
                 <div className="product">
                     <h3>{products.name}</h3>
                     <p>Price: ${products.price}</p>
-                    <Link to="/">Back to Product List</Link>
+                    <Link to="/product/">Back to Product List</Link>
                 </div>
             )}
         </div>

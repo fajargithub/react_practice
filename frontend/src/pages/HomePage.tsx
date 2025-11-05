@@ -1,10 +1,14 @@
-import ProductList from "../components/ProductList";
+import { useNavigate } from "react-router-dom";
 
 export default function HomePage() {
+  const navigate = useNavigate();
+
   return (
     <div>
-      <h1>Welcome to the Product Store</h1>
-      <ProductList />
+      <h1>Welcome to React App</h1>
+      {/* <ProductList /> */}
+      <h3 onClick={() => navigate(`/product/`)}>Product List</h3>
+      <h3 onClick={() => navigate(`/user/`)}>User List</h3>
     </div>
   );
 }
