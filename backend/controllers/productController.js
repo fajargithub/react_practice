@@ -21,6 +21,7 @@ export const getProduct = (req, res) => {
 // Create a new product
 export const createProduct = (req, res) => {
     const { name, price } = req.body;
+    console.log(name, price);
     db.query("INSERT INTO products (name, price) VALUES (?, ?)", 
         [name, price], 
         (err, data) => {
